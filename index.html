@@ -4,10 +4,16 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Hello Vite - Enhanced</title>
-     <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="./src/css/styles.css">
+     <style>
+        @import url("./src/css/sample.sass");
+     </style>
 </head>
 <body>
      <h1>Hello Vite - Enhanced Features</h1>
+     <h2>Support SASS</h2>
+
+     <img src="./assets/vite.png" alt="Vite" style="height: 100px; width: auto;" >
      
      <div class="container">
          <h2>Counter Demo</h2>
@@ -36,9 +42,12 @@
 
 <script type="module">
      // Import all modules
-     import { Counter } from "./counter.js";
-     import { sayHello } from "./say-hello.js";
-     import { Timer, TodoList } from "./features.js";
+     import { Counter } from "./src/counter.js";
+     import { sayHello } from "./src/say-hello.js";
+     import { Timer, TodoList } from "./src/features.js";
+     import { sayGoodBy} from "./src/say_goodbye.ts";
+     import {v4} from "uuid";
+     import * as person from "./src/person.json";
 
      // Counter functionality
      const counter = new Counter();
@@ -147,6 +156,14 @@
      updateCounterDisplay();
      renderTodos();
      sayHello("Vite Learner");
+     sayGoodBy("Sehan");
+     console.info(v4());
+
+     // json
+     console.info(person);
+     console.info(person.name);
+     console.info(person.age);
+     console.info(person.city);
 </script>
 </body>
 </html>
